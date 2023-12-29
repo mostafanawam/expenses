@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Google Drive</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+    <style>
+      /* Custom styles for folder and file icons */
+      .folder-icon::before {
+        content: "\1F4C1";
+        /* Unicode character for a folder */
+        font-size: 24px;
+        margin-right: 8px;
+      }
+
+      .file-icon::before {
+        content: "\1F4C4";
+        /* Unicode character for a file */
+        font-size: 24px;
+        margin-right: 8px;
+      }
+
+    </style>
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="{% url 'main:company_files' pk=1  %}"  class="d-flex align-items-center  my-2  mb-md-0  text-center text-white text-decoration-none">
+                        {% comment %} <img class="rounded-circle img-fluid w-25 h-25 d-none d-sm-inline" src="/assets/logo.png" /> {% endcomment %}
+                        <span class="fs-4 d-none d-sm-inline  ">Company Name</span>
+                    </a>
+                    <div class="divider d-none d-sm-inline"></div>
+
+
+                    {% block items %}
+                    {% endblock %}
+
+            
+                    <div class="divider"></div>
+
+                    <div class="mb-2 mt-md-0 mt-2 logout">
+                        <a href="{% url 'main:companies_page' %}" class="d-flex align-items-center text-white text-decoration-none">
+                            <i class="fas fa-building"></i> <span class="ms-1 d-none d-sm-inline ">Companies</span>
+                        </a>
+                    </div>
+
+                    <div class="mb-5 mt-md-0  logout">
+                        <a href="{% url 'main:logout' %}" class="d-flex align-items-center text-white text-decoration-none">
+                            <i class="fas fa-sign-out-alt"></i>  <span class="ms-1 d-none d-sm-inline ">Logout</span>
+                        </a>
+                    </div>
+         
+
+                </div>
+            </div>
+            <div class="col py-3"> 
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

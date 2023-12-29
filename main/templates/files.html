@@ -1,0 +1,69 @@
+
+{% extends 'layout.html' %}
+
+  {% block items %} 
+
+          
+  <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="menu">
+    <li class="nav-item active">
+        <a href="{% url 'main:company_files' pk=1  %}" class="nav-link align-middle px-0 text-decoration-none">
+            <i class="fas fa-file"></i> <span class="ms-1 d-none d-sm-inline">Files</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'main:company_expenses' pk=1  %}" class="nav-link align-middle px-0  text-decoration-none ">
+            <i class="fas fa-money-check-alt"></i><span class="ms-1 d-none d-sm-inline">Expenses</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'main:company_invoice' pk=1  %}" class="nav-link align-middle px-0  text-decoration-none">
+            <i class="fas fa-file-invoice-dollar"></i> <span class="ms-1 d-none d-sm-inline ">Invoice</span>
+        </a>
+    </li>
+  </ul>
+  {% endblock %}
+
+
+
+{% block content %} 
+<div class="container mt-5">
+    <h1 class="mb-4">My Drive</h1>
+    <div class="row mb-2">
+      <div class="col-md-4 col-12">
+        <input class="form-control" placeholder="Folder Name">
+      </div>
+      <div class="col-md-2 col-12 mt-md-0 mt-2 ">
+        <button class="btn btn-primary ">New Folder <i class="fas fa-plus-circle"></i>
+        </button>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-2 text-end">
+        <button class="btn btn-secondary">Upload <i class="fas fa-upload"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Folder and files list -->
+    <ul class="list-group">
+      <!-- Folder 1 -->
+      <li class="list-group-item">
+        <span class="folder-icon"></span>
+        <span class="fw-bold">Folder 1</span>
+      </li>
+      <!-- Folder 2 -->
+      <li class="list-group-item">
+        <span class="folder-icon"></span>
+        <span class="fw-bold">Folder 2</span>
+      </li>
+      <!-- File 1 -->
+      <li class="list-group-item">
+        <span class="file-icon"></span>
+        <span>File 1.txt</span>
+      </li>
+      <!-- File 2 -->
+      <li class="list-group-item">
+        <span class="file-icon"></span>
+        <span>File 2.doc</span>
+      </li>
+    </ul>
+  </div>
+  {% endblock %}
